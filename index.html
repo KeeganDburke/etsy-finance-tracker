@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Etsy Finance Tracker Waitlist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1E3D2F;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #2A4D3D;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            background: linear-gradient(90deg, #FFD700, #E6B800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: none;
+            background: #3A5D4B;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+        }
+        input::placeholder {
+            color: #A0C0A0;
+        }
+        .pricing-box {
+            background: #315D47;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 10px 0;
+        }
+        .button {
+            display: block;
+            background-color: #28A745;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        .checklist {
+            text-align: left;
+            padding-left: 20px;
+            font-size: 16px;
+        }
+        .checklist li::marker {
+            color: #FFD700;
+        }
+        .challenge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .challenge-container input {
+            width: auto;
+        }
+        #other-textbox {
+            display: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: none;
+            background: #3A5D4B;
+            color: white;
+            font-size: 16px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+            z-index: 1000;
+        }
+        .popup h2 {
+            color: #28A745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Join the <span class="highlight">Etsy Finance Tracker</span> Waitlist</h1>
+        <p><strong>What You Get Now:</strong></p>
+        <ul class="checklist">
+            <li>✅ Automated Budget & Sales Tracking</li>
+            <li>✅ Profit & Expense Reports</li>
+            <li>✅ Etsy Fees & Tax Estimates</li>
+            <li>✅ Multiple Income Stream Support</li>
+            <li>✅ Lifetime Access (One-Time Purchase)</li>
+        </ul>
+        
+        <input type="text" placeholder="Name" id="name">
+        <input type="email" placeholder="Email" id="email">
+        
+        <label for="pricing">Preferred Pricing Plan:</label>
+        <select id="pricing">
+            <option value="$9/month">Starter ($9/mo, $99/yr) - Budget tracking only</option>
+            <option value="$19/month">Pro ($19/mo, $199/yr) - Reports, analytics & insights</option>
+            <option value="$29/month">Business ($29/mo, $299/yr) - Full Etsy finance system</option>
+            <option value="$499/one-time">💰 Lifetime ($499 One-Time) - Everything + No Subscription</option>
+        </select>
+        
+        <p><strong>Biggest Financial Challenges (select all that apply):</strong></p>
+        <div class="challenge-container">
+            <input type="checkbox" id="tracking" value="Tracking expenses"> <label for="tracking">Tracking expenses</label>
+        </div>
+        <div class="challenge-container">
+            <input type="checkbox" id="sales" value="Managing sales"> <label for="sales">Managing sales</label>
+        </div>
+        <div class="challenge-container">
+            <input type="checkbox" id="taxes" value="Etsy fees & taxes"> <label for="taxes">Etsy fees & taxes</label>
+        </div>
+        <div class="challenge-container">
+            <input type="checkbox" id="other" value="Other" onclick="toggleOther()"> <label for="other">Other</label>
+        </div>
+        <input type="text" id="other-textbox" placeholder="Please specify...">
+        
+        <button class="button" onclick="submitForm()">🚀 JOIN WAITLIST NOW!!</button>
+    </div>
+    
+    <div class="popup" id="popup">
+        <h2>🚀 Success!</h2>
+        <p>Thank you for signing up! Your information has been recorded.</p>
+    </div>
+
+    <script>
+        var googleScriptURL = "https://script.google.com/macros/s/AKfycbyKZpsgrw8j3UozH_p0l3CNFlObpRTrCrgLi_CuoMXNvwAZobXR3L6z8soQa_nxEpclUA/exec";
+
+        function toggleOther() {
+            var otherTextBox = document.getElementById("other-textbox");
+            otherTextBox.style.display = document.getElementById("other").checked ? "block" : "none";
+        }
+
+        function submitForm() {
+            var data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                pricing: document.getElementById("pricing").value,
+                tracking: document.getElementById("tracking").checked ? "✅" : "",
+                sales: document.getElementById("sales").checked ? "✅" : "",
+                taxes: document.getElementById("taxes").checked ? "✅" : "",
+                other: document.getElementById("other").checked ? document.getElementById("other-textbox").value : ""
+            };
+
+            fetch(googleScriptURL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(response => {
+                if (response.includes("Success")) {
+                    document.getElementById("popup").style.display = "block";
+                    setTimeout(() => { document.getElementById("popup").style.display = "none"; }, 3000);
+                } else {
+                    alert("Submission failed. Please try again.");
+                }
+            })
+            .catch(error => {
+                alert("Error submitting the form. Please try again.");
+                console.error("Submission error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
